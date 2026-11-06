@@ -57,16 +57,27 @@ const App = (() => {
     handleScroll();
 
     if (menuToggle && navMenu) {
-      menuToggle.addEventListener('click', () => {
+      const closeMobileMenu = () => {
+        navMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      };
+
+      menuToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
         const isOpen = navMenu.classList.toggle('open');
         menuToggle.setAttribute('aria-expanded', String(isOpen));
       });
 
-      navLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-          navMenu.classList.remove('open');
-          menuToggle.setAttribute('aria-expanded', 'false');
-        });
+      navMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!navMenu.classList.contains('open')) return;
+        const target = event.target;
+        if (target instanceof Node && !navMenu.contains(target) && !menuToggle.contains(target)) {
+          closeMobileMenu();
+        }
       });
     }
   }
@@ -110,6 +121,34 @@ const App = (() => {
         resetAutoPlay();
       });
     });
+
+    // Suporte a gesto de deslizar (swipe) na imagem principal no celular
+    let touchStartX = 0;
+    mainImg.addEventListener(
+      'touchstart',
+      (event) => {
+        if (event.touches.length > 0) {
+          touchStartX = event.touches[0].clientX;
+        }
+      },
+      { passive: true }
+    );
+
+    mainImg.addEventListener(
+      'touchend',
+      (event) => {
+        if (event.changedTouches.length === 0) return;
+        const diffX = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(diffX) > 42) {
+          const nextIdx = diffX < 0
+            ? (activeIdx + 1) % thumbs.length
+            : (activeIdx - 1 + thumbs.length) % thumbs.length;
+          selectSlide(nextIdx);
+          resetAutoPlay();
+        }
+      },
+      { passive: true }
+    );
 
     function startAutoPlay() {
       heroIntervalId = window.setInterval(() => {
@@ -155,6 +194,7 @@ const App = (() => {
 
         filterButtons.forEach((btn) => btn.classList.remove('active'));
         button.classList.add('active');
+        button.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 
         visiblePortfolioItems = [];
         allItems.forEach((item) => {
@@ -235,6 +275,36 @@ const App = (() => {
         updateLightboxContent(currentLightboxIndex + 1);
       }
     });
+
+    // Suporte a swipe horizontal no Lightbox para dispositivos móveis
+    if (lightbox) {
+      let lbTouchStartX = 0;
+      lightbox.addEventListener(
+        'touchstart',
+        (event) => {
+          if (event.touches.length > 0) {
+            lbTouchStartX = event.touches[0].clientX;
+          }
+        },
+        { passive: true }
+      );
+
+      lightbox.addEventListener(
+        'touchend',
+        (event) => {
+          if (lightbox.hidden || event.changedTouches.length === 0) return;
+          const diffX = event.changedTouches[0].clientX - lbTouchStartX;
+          if (Math.abs(diffX) > 48) {
+            if (diffX < 0) {
+              updateLightboxContent(currentLightboxIndex + 1);
+            } else {
+              updateLightboxContent(currentLightboxIndex - 1);
+            }
+          }
+        },
+        { passive: true }
+      );
+    }
   }
 
   /**
@@ -333,7 +403,7 @@ const App = (() => {
             }
           });
         },
-        { threshold: 0.12 }
+        { threshold: 0.02, rootMargin: '0px 0px 80px 0px' }
       );
 
       revealItems.forEach((el) => observer.observe(el));

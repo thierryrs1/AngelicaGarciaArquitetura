@@ -2,11 +2,18 @@
 
 Landing page institucional e portfólio interativo desenvolvido para a arquiteta **Angélica Garcia** (`@angelicagarciaarq`), com sede em **Cambuí/MG** e atuação em todo o Sul de Minas e projetos online.
 
+🌐 **Site Online (GitHub Pages):** [https://thierryrs1.github.io/AngelicaGarciaArquitetura/](https://thierryrs1.github.io/AngelicaGarciaArquitetura/)
+
 ---
 
 ## ✨ Funcionalidades Principais
 
 - **Identidade Visual Fiel**: Monograma geométrico `AG` em SVG vetorial, paleta inspirada na madeira natural, travertino e tons terrosos do escritório da arquiteta.
+- **Responsividade Mobile Avançada**:
+  - Layout adaptado para smartphones (`320px`, `375px`, `420px`) e tablets sem rolagem horizontal.
+  - Menu mobile expansivo com animação de ícone, fechamento ao tocar fora e botão direto de WhatsApp.
+  - Suporte a gestos de deslizar (*swipe* horizontal) na galeria Hero e no Lightbox em telas sensíveis ao toque.
+  - Barra de filtros do portfólio com deslize horizontal fluido e prevenção de zoom automático no iOS em campos de formulário.
 - **Showcase Interativo na Hero**: Alternância automática e manual entre os projetos de destaque da arquiteta.
 - **Portfólio com 18 Projetos Reais e Filtro Dinâmico**:
   - Categorias: *Todos*, *Fachadas & Residencial*, *Design de Interiores*, *Campo & Lazer* e *Comercial & Plantas*.
