@@ -2,11 +2,20 @@
 
 /**
  * Angélica Garcia Arquitetura, Interiores e Urbanismo
- * Lógica principal da Landing Page centralizada no app.js
+ * Configurações e lógica principal da Landing Page
  */
 const App = (() => {
-  const WHATSAPP_NUMBER = '5535992522222';
-  const EMAIL_ADDRESS = 'angelicagarcia.arq@gmail.com';
+  // =========================================================================
+  // CONFIGURAÇÃO CENTRALIZADA (ÚNICO LOCAL PARA EDITAR CONTATOS)
+  // =========================================================================
+  const CONFIG = {
+    whatsappNumber: '5535992522222',
+    whatsappDisplay: '(35) 99252-2222',
+    email: 'angelicagarcia.arq@gmail.com',
+    instagramUser: '@angelicagarciaarq',
+    instagramUrl: 'https://www.instagram.com/angelicagarciaarq/',
+    defaultCity: 'Cambuí/MG',
+  };
 
   let visiblePortfolioItems = [];
   let currentLightboxIndex = 0;
@@ -17,8 +26,62 @@ const App = (() => {
    * @param {string} message
    * @returns {string}
    */
-  function buildWhatsAppUrl(message) {
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  function buildWhatsAppUrl(message = '') {
+    if (!message) {
+      return `https://wa.me/${CONFIG.whatsappNumber}`;
+    }
+    return `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+  }
+
+  /**
+   * Injeta os dados centralizados de contato em todo o HTML
+   * Elementos com data-wa-link, data-wa-display, data-email-link, data-email-text, data-instagram-link, etc.
+   */
+  function bindContactData() {
+    // 1. Links de WhatsApp com mensagens pré-definidas
+    const waLinks = document.querySelectorAll('[data-wa-link]');
+    waLinks.forEach((link) => {
+      const message = link.getAttribute('data-wa-message') || '';
+      link.href = buildWhatsAppUrl(message);
+    });
+
+    // 2. Textos de WhatsApp para exibição visual (ex: "(35) 99252-2222")
+    const waDisplays = document.querySelectorAll('[data-wa-display]');
+    waDisplays.forEach((el) => {
+      const prefix = el.getAttribute('data-wa-prefix') || '';
+      el.textContent = `${prefix}${CONFIG.whatsappDisplay}`;
+    });
+
+    // 3. Links de E-mail (mailto:)
+    const emailLinks = document.querySelectorAll('[data-email-link]');
+    emailLinks.forEach((link) => {
+      link.href = `mailto:${CONFIG.email}`;
+    });
+
+    // 4. Textos de E-mail exibidos
+    const emailTexts = document.querySelectorAll('[data-email-text]');
+    emailTexts.forEach((el) => {
+      el.textContent = CONFIG.email;
+    });
+
+    // 5. Botões de cópia de e-mail
+    const emailCopies = document.querySelectorAll('[data-email-copy]');
+    emailCopies.forEach((btn) => {
+      btn.setAttribute('data-email', CONFIG.email);
+    });
+
+    // 6. Links do Instagram
+    const instaLinks = document.querySelectorAll('[data-instagram-link]');
+    instaLinks.forEach((link) => {
+      link.href = CONFIG.instagramUrl;
+    });
+
+    // 7. Textos do Instagram exibidos (ex: "@angelicagarciaarq")
+    const instaTexts = document.querySelectorAll('[data-instagram-text]');
+    instaTexts.forEach((el) => {
+      const suffix = el.getAttribute('data-instagram-suffix') || '';
+      el.textContent = `${CONFIG.instagramUser}${suffix}`;
+    });
   }
 
   /**
@@ -361,14 +424,14 @@ const App = (() => {
           details ? `Detalhes: ${details}` : '',
         ].filter((line, idx) => idx < 3 || Boolean(line));
 
-        const mailtoUrl = `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+        const mailtoUrl = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
         window.location.href = mailtoUrl;
       });
     }
 
     if (copyEmailBtn) {
       copyEmailBtn.addEventListener('click', async () => {
-        const email = copyEmailBtn.getAttribute('data-email') || EMAIL_ADDRESS;
+        const email = copyEmailBtn.getAttribute('data-email') || CONFIG.email;
         try {
           await navigator.clipboard.writeText(email);
           const originalText = copyEmailBtn.textContent;
@@ -413,6 +476,7 @@ const App = (() => {
   }
 
   function init() {
+    bindContactData();
     initNavigation();
     initHeroShowcase();
     initPortfolioAndLightbox();

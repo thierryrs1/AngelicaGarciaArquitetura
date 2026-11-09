@@ -21,7 +21,9 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
 - **Redirecionamento Inteligente para WhatsApp**:
   - Botões de conversão estrategicamente posicionados na barra superior, cabeçalho, hero, cards de especialidades, lightbox, formulário interativo e botão flutuante.
   - Formulário que estrutura automaticamente o briefing inicial do cliente e abre a conversa em `https://wa.me/5535992522222`.
-- **Canais de Contato Integrados**:
+- **Canais de Contato Centralizados (Single Source of Truth)**:
+  - Todas as informações de **WhatsApp** (`wa.me` e máscara de exibição), **E-mail** e **Instagram** são configuradas em um único objeto `CONFIG` no início de [`app.js`](file:///c:/Users/Admin/Desktop/Clientes/AngelicaGarciaArquiteta/app.js).
+  - Caso o telefone ou e-mail mude, basta alterar uma única linha e todo o site (links, textos visíveis, formulários e lightbox) se atualiza automaticamente.
   - **WhatsApp**: [wa.me/5535992522222](https://wa.me/5535992522222) — `(35) 99252-2222`
   - **E-mail**: `angelicagarcia.arq@gmail.com` (com opção de envio direto e cópia rápida para a área de transferência)
   - **Instagram**: [@angelicagarciaarq](https://www.instagram.com/angelicagarciaarq/)
