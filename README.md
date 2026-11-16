@@ -8,22 +8,27 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
 
 ## ✨ Funcionalidades Principais
 
-- **Identidade Visual Fiel**: Monograma geométrico `AG` em SVG vetorial, paleta inspirada na madeira natural, travertino e tons terrosos do escritório da arquiteta.
+- **Identidade Visual Oficial**:
+  - Monograma geométrico `AG` em SVG vetorial fiel ao arquivo CorelDRAW (`.cdr`) e ao Manual de Identidade Visual.
+  - Cartela de cores oficial: Rosa Fosco (`#E39A9A`), Cinza Chumbo (`#515151`) e Cinza Claro (`#F7F7F8`).
 - **Responsividade Mobile Avançada**:
   - Layout adaptado para smartphones (`320px`, `375px`, `420px`) e tablets sem rolagem horizontal.
   - Menu mobile expansivo com animação de ícone, fechamento ao tocar fora e botão direto de WhatsApp.
   - Suporte a gestos de deslizar (*swipe* horizontal) na galeria Hero e no Lightbox em telas sensíveis ao toque.
   - Barra de filtros do portfólio com deslize horizontal fluido e prevenção de zoom automático no iOS em campos de formulário.
 - **Showcase Interativo na Hero**: Alternância automática e manual entre os projetos de destaque da arquiteta.
-- **Portfólio com 18 Projetos Reais e Filtro Dinâmico**:
+- **Portfólio com 30 Projetos Reais e Filtro Dinâmico**:
   - Categorias: *Todos*, *Fachadas & Residencial*, *Design de Interiores*, *Campo & Lazer* e *Comercial & Plantas*.
   - **Lightbox Modal**: Visualização ampliada com descrição técnica, navegação por teclado (`Esc`, `←`, `→`) e botão direto para solicitar um projeto no mesmo estilo via WhatsApp.
+- **Seção de Vídeos & Tours Virtuais 3D (`#videos`)**:
+  - 7 passeios virtuais em vídeo com players nativos do YouTube embutidos diretamente nos cards e gerenciados via `CONFIG.videos` em [`app.js`](file:///c:/Users/Admin/Desktop/Clientes/AngelicaGarciaArquiteta/app.js).
 - **Redirecionamento Inteligente para WhatsApp**:
   - Botões de conversão estrategicamente posicionados na barra superior, cabeçalho, hero, cards de especialidades, lightbox, formulário interativo e botão flutuante.
   - Formulário que estrutura automaticamente o briefing inicial do cliente e abre a conversa em `https://wa.me/5535992522222`.
-- **Canais de Contato Centralizados (Single Source of Truth)**:
-  - Todas as informações de **WhatsApp** (`wa.me` e máscara de exibição), **E-mail** e **Instagram** são configuradas em um único objeto `CONFIG` no início de [`app.js`](file:///c:/Users/Admin/Desktop/Clientes/AngelicaGarciaArquiteta/app.js).
-  - Caso o telefone ou e-mail mude, basta alterar uma única linha e todo o site (links, textos visíveis, formulários e lightbox) se atualiza automaticamente.
+- **Canais de Contato, CAU & Endereço Centralizados (Single Source of Truth)**:
+  - Todas as informações de **WhatsApp**, **E-mail**, **Instagram**, **CAU** (`CAU A103145-7`), **Endereço** (`R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000`) e **Vídeos do YouTube** são configuradas em um único objeto `CONFIG` no início de [`app.js`](file:///c:/Users/Admin/Desktop/Clientes/AngelicaGarciaArquiteta/app.js).
+  - **Registro Profissional**: `CAU A103145-7`
+  - **Endereço**: `R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000`
   - **WhatsApp**: [wa.me/5535992522222](https://wa.me/5535992522222) — `(35) 99252-2222`
   - **E-mail**: `angelicagarcia.arq@gmail.com` (com opção de envio direto e cópia rápida para a área de transferência)
   - **Instagram**: [@angelicagarciaarq](https://www.instagram.com/angelicagarciaarq/)

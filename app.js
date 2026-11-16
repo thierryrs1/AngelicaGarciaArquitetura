@@ -6,7 +6,7 @@
  */
 const App = (() => {
   // =========================================================================
-  // CONFIGURAÇÃO CENTRALIZADA (ÚNICO LOCAL PARA EDITAR CONTATOS)
+  // CONFIGURAÇÃO CENTRALIZADA (ÚNICO LOCAL PARA EDITAR CONTATOS E VÍDEOS)
   // =========================================================================
   const CONFIG = {
     whatsappNumber: '5535992522222',
@@ -14,7 +14,19 @@ const App = (() => {
     email: 'angelicagarcia.arq@gmail.com',
     instagramUser: '@angelicagarciaarq',
     instagramUrl: 'https://www.instagram.com/angelicagarciaarq/',
+    cau: 'CAU A103145-7',
+    addressShort: 'R. Getúlio Vargas, 111 - Centro, Cambuí/MG',
+    addressFull: 'R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000',
     defaultCity: 'Cambuí/MG',
+    videos: {
+      video1: 'https://youtu.be/v1m7bIUq_B4', // 01 Interiores Residencial
+      video2: 'https://youtu.be/YVemiMq7Uts', // 02 Interiores Comercial 1 (Clínica Fisio Corrêa)
+      video3: 'https://youtu.be/Upaxh2Rtx08', // 03 Interiores Comercial 2
+      video4: 'https://youtu.be/aDLWLHBzNJc', // 04 Interiores Comercial 3
+      video5: 'https://youtu.be/zz5xanKI17Q', // 05 Reforma Comercial (Wandré Veículos)
+      video6: 'https://youtu.be/TMlAr1SBFKk', // 06 Arquitetônico Residencial 1 (Edifício Mason 167)
+      video7: 'https://youtu.be/lggV7VD-uek', // 07 Arquitetônico Residencial 2 (Residência em Desnível)
+    },
   };
 
   let visiblePortfolioItems = [];
@@ -34,8 +46,20 @@ const App = (() => {
   }
 
   /**
-   * Injeta os dados centralizados de contato em todo o HTML
-   * Elementos com data-wa-link, data-wa-display, data-email-link, data-email-text, data-instagram-link, etc.
+   * Extrai o ID de 11 caracteres de qualquer formato de link do YouTube
+   * @param {string} input
+   * @returns {string}
+   */
+  function extractYouTubeId(input = '') {
+    const trimmed = input.trim();
+    if (!trimmed) return '';
+    if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) return trimmed;
+    const match = trimmed.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/);
+    return match ? match[1] : '';
+  }
+
+  /**
+   * Injeta os dados centralizados de contato, CAU e endereço em todo o HTML
    */
   function bindContactData() {
     // 1. Links de WhatsApp com mensagens pré-definidas
@@ -81,6 +105,34 @@ const App = (() => {
     instaTexts.forEach((el) => {
       const suffix = el.getAttribute('data-instagram-suffix') || '';
       el.textContent = `${CONFIG.instagramUser}${suffix}`;
+    });
+
+    // 8. Registro CAU
+    const cauElements = document.querySelectorAll('[data-cau]');
+    cauElements.forEach((el) => {
+      el.textContent = CONFIG.cau;
+    });
+
+    // 9. Endereço curto e completo
+    const addressShortElements = document.querySelectorAll('[data-address-short]');
+    addressShortElements.forEach((el) => {
+      el.textContent = CONFIG.addressShort;
+    });
+
+    const addressFullElements = document.querySelectorAll('[data-address-full]');
+    addressFullElements.forEach((el) => {
+      el.textContent = CONFIG.addressFull;
+    });
+
+    // 10. Players de Vídeo do YouTube (embutidos diretamente via CONFIG.videos)
+    const youtubeEmbeds = document.querySelectorAll('[data-youtube-embed]');
+    youtubeEmbeds.forEach((iframe) => {
+      const key = iframe.getAttribute('data-youtube-embed') || '';
+      const rawUrl = CONFIG.videos[key] || '';
+      const ytId = extractYouTubeId(rawUrl);
+      if (ytId) {
+        iframe.src = `https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1`;
+      }
     });
   }
 
