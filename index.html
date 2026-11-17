@@ -40,13 +40,13 @@
   <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-info">
-        <span class="topbar-item">
+        <a href="#" class="topbar-item topbar-link" data-maps-link title="Ver localização no Google Maps" aria-label="Ver localização no Google Maps">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
           <span data-address-short></span>
-        </span>
+        </a>
         <span class="topbar-divider hide-on-mobile" aria-hidden="true">|</span>
         <span class="topbar-item topbar-cau hide-on-mobile" data-cau></span>
         <span class="topbar-divider" aria-hidden="true">|</span>
@@ -1517,7 +1517,7 @@
             Um escritório preparado para receber <em>você</em> e dar forma ao seu sonho.
           </h2>
           <p class="studio-text">
-            Localizado no coração de <strong>Cambuí/MG</strong> (<span data-address-full></span>), cada detalhe do nosso
+            Localizado no coração de <strong>Cambuí/MG</strong> (<a href="#" class="studio-maps-inline-link" data-maps-link title="Abrir endereço no Google Maps"><span data-address-full></span> ↗</a>), cada detalhe do nosso
             escritório foi projetado para proporcionar uma experiência acolhedora, criativa e transparente. Aqui
             realizamos apresentações em tela de alta definição, análise de amostras de revestimentos, iluminação e
             alinhamento técnico de cada fase do seu projeto.
@@ -1714,7 +1714,7 @@
             </div>
 
             <!-- Location Card -->
-            <div class="contact-card">
+            <a href="#" class="contact-card contact-card-clickable" data-maps-link title="Abrir localização no Google Maps">
               <div class="contact-card-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -1722,11 +1722,11 @@
                 </svg>
               </div>
               <div class="contact-card-content">
-                <span class="contact-card-label">Endereço do Escritório &amp; Abrangência</span>
+                <span class="contact-card-label">Endereço do Escritório &amp; Abrangência ↗</span>
                 <strong class="contact-card-value" data-address-short></strong>
                 <span class="contact-card-sub"><span data-address-full></span> • Atendimento no Sul de Minas &amp; Online</span>
               </div>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -1873,7 +1873,11 @@
                 <span data-instagram-text data-instagram-suffix=" (Instagram)"></span>
               </a>
             </li>
-            <li>📍 <span data-address-full></span></li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" data-maps-link title="Ver no Google Maps">
+                📍 <span data-address-full></span>
+              </a>
+            </li>
             <li>🏛️ <span data-cau></span></li>
           </ul>
         </div>

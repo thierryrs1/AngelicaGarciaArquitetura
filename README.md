@@ -27,9 +27,9 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
   - Botões de conversão estrategicamente posicionados na barra superior, cabeçalho, hero, cards de especialidades, lightbox, formulário interativo e botão flutuante.
   - Formulário que estrutura automaticamente o briefing inicial do cliente e abre a conversa em `https://wa.me/5535992522222`.
 - **Canais de Contato, CAU & Endereço Centralizados (Single Source of Truth)**:
-  - Todas as informações de **WhatsApp**, **E-mail**, **Instagram**, **CAU** (`CAU A103145-7`), **Endereço** (`R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000`) e **Vídeos do YouTube** são configuradas em um único objeto `CONFIG` no início de [`app.js`](file:///c:/Users/Admin/Desktop/Clientes/AngelicaGarciaArquiteta/app.js).
+  - Todas as informações de **WhatsApp**, **E-mail**, **Instagram**, **CAU** (`CAU A103145-7`), **Endereço** com link direto para o **Google Maps** (`R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000`) e **Vídeos do YouTube** são configuradas em um único objeto `CONFIG` no início de [`app.js`](file:///c:/Users/Admin/Desktop/Clientes/AngelicaGarciaArquiteta/app.js).
   - **Registro Profissional**: `CAU A103145-7`
-  - **Endereço**: `R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000`
+  - **Endereço & Localização**: `R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000` (com links interativos para o Google Maps na topbar, na seção do escritório, no card de contato e no rodapé)
   - **WhatsApp**: [wa.me/5535992522222](https://wa.me/5535992522222) — `(35) 99252-2222`
   - **E-mail**: `angelicagarcia.arq@gmail.com` (com opção de envio direto e cópia rápida para a área de transferência)
   - **Instagram**: [@angelicagarciaarq](https://www.instagram.com/angelicagarciaarq/)

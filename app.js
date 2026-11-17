@@ -17,6 +17,7 @@ const App = (() => {
     cau: 'CAU A103145-7',
     addressShort: 'R. Getúlio Vargas, 111 - Centro, Cambuí/MG',
     addressFull: 'R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=R.+Get%C3%BAlio+Vargas,+111+-+Centro,+Cambu%C3%AD+-+MG,+37600-000',
     defaultCity: 'Cambuí/MG',
     videos: {
       video1: 'https://youtu.be/v1m7bIUq_B4', // 01 Interiores Residencial
@@ -124,7 +125,15 @@ const App = (() => {
       el.textContent = CONFIG.addressFull;
     });
 
-    // 10. Players de Vídeo do YouTube (embutidos diretamente via CONFIG.videos)
+    // 10. Links para o Google Maps
+    const mapsLinks = document.querySelectorAll('[data-maps-link]');
+    mapsLinks.forEach((link) => {
+      link.href = CONFIG.mapsUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    });
+
+    // 11. Players de Vídeo do YouTube (embutidos diretamente via CONFIG.videos)
     const youtubeEmbeds = document.querySelectorAll('[data-youtube-embed]');
     youtubeEmbeds.forEach((iframe) => {
       const key = iframe.getAttribute('data-youtube-embed') || '';
