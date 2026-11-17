@@ -17,8 +17,9 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
   - Suporte a gestos de deslizar (*swipe* horizontal) na galeria Hero e no Lightbox em telas sensíveis ao toque.
   - Barra de filtros do portfólio com deslize horizontal fluido e prevenção de zoom automático no iOS em campos de formulário.
 - **Showcase Interativo na Hero**: Alternância automática e manual entre os projetos de destaque da arquiteta.
-- **Portfólio com 30 Projetos Reais e Filtro Dinâmico**:
-  - Categorias: *Todos*, *Fachadas & Residencial*, *Design de Interiores*, *Campo & Lazer* e *Comercial & Plantas*.
+- **Portfólio em Carrossel Interativo com 30 Projetos Reais e Filtro Dinâmico**:
+  - Carrossel horizontal responsivo (3 projetos por vista no desktop, 2 no tablet, 1 com *peek* no mobile), com botões de avanço/recuo, barra de progresso e suporte a *swipe*.
+  - Categorias: *Todos (30)*, *Fachadas & Residencial*, *Design de Interiores*, *Campo & Lazer* e *Comercial & Plantas*.
   - **Lightbox Modal**: Visualização ampliada com descrição técnica, navegação por teclado (`Esc`, `←`, `→`) e botão direto para solicitar um projeto no mesmo estilo via WhatsApp.
 - **Seção de Vídeos & Tours Virtuais 3D (`#videos`)**:
   - 7 passeios virtuais em vídeo com players nativos do YouTube embutidos diretamente nos cards e gerenciados via `CONFIG.videos` em [`app.js`](file:///c:/Users/Admin/Desktop/Clientes/AngelicaGarciaArquiteta/app.js).

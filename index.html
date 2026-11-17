@@ -640,7 +640,7 @@
           </div>
 
           <div class="portfolio-filters" role="tablist" aria-label="Filtrar projetos por categoria">
-            <button type="button" class="filter-btn active" data-filter="todos">Todos (18)</button>
+            <button type="button" class="filter-btn active" data-filter="todos">Todos (30)</button>
             <button type="button" class="filter-btn" data-filter="residencial">Fachadas &amp; Residencial</button>
             <button type="button" class="filter-btn" data-filter="interiores">Design de Interiores</button>
             <button type="button" class="filter-btn" data-filter="campo">Campo &amp; Lazer</button>
@@ -648,8 +648,20 @@
           </div>
         </div>
 
-        <!-- Portfolio Grid rendered/managed via HTML + app.js -->
-        <div class="portfolio-grid" id="portfolio-grid">
+        <!-- Portfolio Carousel rendered/managed via HTML + app.js -->
+        <div class="portfolio-carousel">
+          <button
+            type="button"
+            class="carousel-arrow carousel-arrow-prev"
+            id="portfolio-prev"
+            aria-label="Projetos anteriores"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="portfolio-grid" id="portfolio-grid">
           <!-- Item 1 -->
           <article
             class="portfolio-item"
@@ -1094,7 +1106,7 @@
           <!-- Item 22 -->
           <article
             class="portfolio-item"
-            data-category="lazer"
+            data-category="campo"
             data-title="Implantação Residencial &amp; Lazer Completo"
             data-subtitle="Perspectiva Aérea • Piscina &amp; Pergolados"
             data-desc="Visão global do terreno demonstrando a distribuição inteligente entre blocos residenciais, varanda gourmet, piscina e pergolado de descanso."
@@ -1115,7 +1127,7 @@
           <!-- Item 23 -->
           <article
             class="portfolio-item"
-            data-category="lazer"
+            data-category="campo"
             data-title="Espaço Gourmet &amp; Lounge Externo"
             data-subtitle="Paisagismo &amp; Iluminação Noturna"
             data-desc="Área externa com piso drenante e pisantes iluminados, estar ao ar livre em mobiliário autoral, parede em tijolinho aparente com arandelas e integração com a área gourmet."
@@ -1136,7 +1148,7 @@
           <!-- Item 24 -->
           <article
             class="portfolio-item"
-            data-category="lazer"
+            data-category="campo"
             data-title="Espaço Fitness &amp; Lazer com Piscina"
             data-subtitle="Arquitetura de Lazer &amp; Bem-Estar"
             data-desc="Pavilhão de academia residencial revestido em madeira e vidro integrado ao deck da piscina, paisagismo tropical e solário."
@@ -1157,7 +1169,7 @@
           <!-- Item 25 -->
           <article
             class="portfolio-item"
-            data-category="lazer"
+            data-category="campo"
             data-title="Reforma Área de Lazer • Piscina &amp; Redário"
             data-subtitle="Reforma Residencial &amp; Paisagismo"
             data-desc="Projeto de área externa com piscina revestida em pedra hijau, deck amadeirado, guarda-corpo em vidro e pergolado em madeira para rede de descanso."
@@ -1279,6 +1291,35 @@
               <span class="portfolio-Action">Ampliar projeto +</span>
             </div>
           </article>
+          </div>
+
+          <button
+            type="button"
+            class="carousel-arrow carousel-arrow-next"
+            id="portfolio-next"
+            aria-label="Próximos projetos"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="portfolio-carousel-bar">
+          <div class="carousel-progress-track" aria-hidden="true">
+            <div class="carousel-progress-fill" id="portfolio-progress-fill"></div>
+          </div>
+          <div class="carousel-meta">
+            <span class="carousel-counter" id="portfolio-counter">Mostrando 30 projetos • Clique em um projeto para ampliar</span>
+            <div class="carousel-nav-inline">
+              <button type="button" class="carousel-inline-btn" id="portfolio-prev-inline" aria-label="Projetos anteriores">
+                ← Anterior
+              </button>
+              <button type="button" class="carousel-inline-btn" id="portfolio-next-inline" aria-label="Próximos projetos">
+                Próximo →
+              </button>
+            </div>
+          </div>
         </div>
 
         <div class="portfolio-footer" data-reveal>

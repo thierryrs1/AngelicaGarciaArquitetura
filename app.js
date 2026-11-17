@@ -283,11 +283,19 @@ const App = (() => {
   }
 
   /**
-   * Inicializa filtros do Portfólio e modal Lightbox
+   * Inicializa filtros do Portfólio, Carrossel Horizontal e modal Lightbox
    */
   function initPortfolioAndLightbox() {
     const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioGrid = document.getElementById('portfolio-grid');
     const allItems = Array.from(document.querySelectorAll('.portfolio-item'));
+    const prevBtn = document.getElementById('portfolio-prev');
+    const nextBtn = document.getElementById('portfolio-next');
+    const prevInlineBtn = document.getElementById('portfolio-prev-inline');
+    const nextInlineBtn = document.getElementById('portfolio-next-inline');
+    const progressFill = document.getElementById('portfolio-progress-fill');
+    const counterEl = document.getElementById('portfolio-counter');
+
     const lightbox = document.getElementById('lightbox');
     const lightboxBackdrop = document.getElementById('lightbox-backdrop');
     const lightboxClose = document.getElementById('lightbox-close');
@@ -302,6 +310,49 @@ const App = (() => {
     if (allItems.length === 0) return;
 
     visiblePortfolioItems = [...allItems];
+
+    function updateCarouselProgress() {
+      if (!portfolioGrid) return;
+      const maxScroll = portfolioGrid.scrollWidth - portfolioGrid.clientWidth;
+      const ratio = maxScroll > 0 ? Math.min(1, Math.max(0, portfolioGrid.scrollLeft / maxScroll)) : 1;
+      const percent = Math.max(12, Math.round(ratio * 100));
+
+      if (progressFill) {
+        progressFill.style.width = `${percent}%`;
+      }
+      if (counterEl) {
+        counterEl.textContent = `Mostrando ${visiblePortfolioItems.length} projetos • Clique em um projeto para ampliar`;
+      }
+    }
+
+    function scrollCarousel(direction) {
+      if (!portfolioGrid) return;
+      const maxScroll = portfolioGrid.scrollWidth - portfolioGrid.clientWidth;
+      const step = Math.max(280, portfolioGrid.clientWidth * 0.85);
+
+      if (direction > 0) {
+        if (portfolioGrid.scrollLeft >= maxScroll - 10) {
+          portfolioGrid.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          portfolioGrid.scrollBy({ left: step, behavior: 'smooth' });
+        }
+      } else if (portfolioGrid.scrollLeft <= 10) {
+        portfolioGrid.scrollTo({ left: maxScroll, behavior: 'smooth' });
+      } else {
+        portfolioGrid.scrollBy({ left: -step, behavior: 'smooth' });
+      }
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => scrollCarousel(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => scrollCarousel(1));
+    if (prevInlineBtn) prevInlineBtn.addEventListener('click', () => scrollCarousel(-1));
+    if (nextInlineBtn) nextInlineBtn.addEventListener('click', () => scrollCarousel(1));
+
+    if (portfolioGrid) {
+      portfolioGrid.addEventListener('scroll', updateCarouselProgress, { passive: true });
+      window.addEventListener('resize', updateCarouselProgress, { passive: true });
+      updateCarouselProgress();
+    }
 
     filterButtons.forEach((button) => {
       button.addEventListener('click', () => {
@@ -320,6 +371,11 @@ const App = (() => {
             visiblePortfolioItems.push(item);
           }
         });
+
+        if (portfolioGrid) {
+          portfolioGrid.scrollTo({ left: 0, behavior: 'smooth' });
+          setTimeout(updateCarouselProgress, 120);
+        }
       });
     });
 

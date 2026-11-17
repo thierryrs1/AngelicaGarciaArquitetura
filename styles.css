@@ -1001,24 +1001,138 @@ textarea {
   border-color: var(--accent);
 }
 
+.portfolio-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  width: 100%;
+  padding: 0.25rem 0 0.75rem;
+}
+
+.portfolio-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .portfolio-item {
   position: relative;
+  flex: 0 0 calc((100% - 3rem) / 3);
+  scroll-snap-align: start;
   border-radius: var(--radius-md);
   overflow: hidden;
   aspect-ratio: 16 / 11;
   background-color: var(--bg-dark-elevated);
   cursor: pointer;
   border: 1px solid var(--border-dark);
+  user-select: none;
 }
 
 .portfolio-item.hidden {
   display: none;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(29, 28, 29, 0.88);
+  color: var(--text-light);
+  border: 1px solid rgba(227, 154, 154, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition);
+}
+
+.carousel-arrow:hover {
+  background-color: var(--brand-rose);
+  color: #1d1c1d;
+  border-color: var(--brand-rose);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.carousel-arrow-prev {
+  left: -18px;
+}
+
+.carousel-arrow-next {
+  right: -18px;
+}
+
+.portfolio-carousel-bar {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.carousel-progress-track {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.carousel-progress-fill {
+  height: 100%;
+  width: 15%;
+  background-color: var(--brand-rose);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+.carousel-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.carousel-counter {
+  font-size: 0.85rem;
+  color: var(--text-light-muted);
+}
+
+.carousel-nav-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.carousel-inline-btn {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--text-light);
+  border: 1px solid var(--border-dark);
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.carousel-inline-btn:hover {
+  background-color: var(--brand-rose);
+  color: #1d1c1d;
+  border-color: var(--brand-rose);
 }
 
 .portfolio-item img {
@@ -1698,8 +1812,16 @@ a.contact-card:hover {
     gap: 2.75rem;
   }
 
-  .portfolio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .portfolio-item {
+    flex: 0 0 calc((100% - 1.5rem) / 2);
+  }
+
+  .carousel-arrow-prev {
+    left: 0.4rem;
+  }
+
+  .carousel-arrow-next {
+    right: 0.4rem;
   }
 
   .process-steps {
@@ -2011,7 +2133,6 @@ a.contact-card:hover {
   }
 
   .services-grid,
-  .portfolio-grid,
   .process-steps,
   .about-pillars,
   .form-row,
@@ -2060,7 +2181,15 @@ a.contact-card:hover {
   }
 
   .portfolio-grid {
-    gap: 1.15rem;
+    gap: 1rem;
+  }
+
+  .portfolio-item {
+    flex: 0 0 85%;
+  }
+
+  .carousel-arrow {
+    display: none;
   }
 
   .portfolio-overlay {
