@@ -10,7 +10,7 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
 
 - **Identidade Visual Oficial**:
   - Monograma geométrico `AG` em SVG vetorial fiel ao arquivo CorelDRAW (`.cdr`) e ao Manual de Identidade Visual.
-  - Cartela de cores oficial: Rosa Fosco (`#E39A9A`), Cinza Chumbo (`#515151`) e Cinza Claro (`#F7F7F8`).
+  - Cartela de cores oficial aplicada em destaque e equilíbrio: Rosa Fosco (`#E39A9A`), Cinza Grafite (`#3D3D3D`), Cinza Chumbo (`#515151`) e Cinza Claro (`#F7F7F8`), com botões de ação primários, tags de seção, medalhão monograma, realces de cards e rodapé temático na paleta da arquiteta.
 - **Responsividade Mobile Avançada**:
   - Layout adaptado para smartphones (`320px`, `375px`, `420px`) e tablets sem rolagem horizontal.
   - Menu mobile expansivo com animação de ícone, fechamento ao tocar fora e botão direto de WhatsApp.
