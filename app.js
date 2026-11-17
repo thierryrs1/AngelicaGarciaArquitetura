@@ -17,7 +17,7 @@ const App = (() => {
     cau: 'CAU A103145-7',
     addressShort: 'R. Getúlio Vargas, 111 - Centro, Cambuí/MG',
     addressFull: 'R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=R.+Get%C3%BAlio+Vargas,+111+-+Centro,+Cambu%C3%AD+-+MG,+37600-000',
+    mapsUrl: 'https://maps.app.goo.gl/w88qzHhkhVsbSmDD7',
     defaultCity: 'Cambuí/MG',
     videos: {
       video1: 'https://youtu.be/v1m7bIUq_B4', // 01 Interiores Residencial

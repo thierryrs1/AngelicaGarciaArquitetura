@@ -29,7 +29,7 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
 - **Canais de Contato, CAU & Endereço Centralizados (Single Source of Truth)**:
   - Todas as informações de **WhatsApp**, **E-mail**, **Instagram**, **CAU** (`CAU A103145-7`), **Endereço** com link direto para o **Google Maps** (`R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000`) e **Vídeos do YouTube** são configuradas em um único objeto `CONFIG` no início de [`app.js`](file:///c:/Users/Admin/Desktop/Clientes/AngelicaGarciaArquiteta/app.js).
   - **Registro Profissional**: `CAU A103145-7`
-  - **Endereço & Localização**: `R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000` (com links interativos para o Google Maps na topbar, na seção do escritório, no card de contato e no rodapé)
+  - **Endereço & Localização**: `R. Getúlio Vargas, 111 - Centro, Cambuí - MG, 37600-000` — [maps.app.goo.gl/w88qzHhkhVsbSmDD7](https://maps.app.goo.gl/w88qzHhkhVsbSmDD7) (com links interativos para o Google Maps na topbar, na seção do escritório, no card de contato e no rodapé)
   - **WhatsApp**: [wa.me/5535992522222](https://wa.me/5535992522222) — `(35) 99252-2222`
   - **E-mail**: `angelicagarcia.arq@gmail.com` (com opção de envio direto e cópia rápida para a área de transferência)
   - **Instagram**: [@angelicagarciaarq](https://www.instagram.com/angelicagarciaarq/)
