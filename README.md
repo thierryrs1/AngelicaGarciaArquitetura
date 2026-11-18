@@ -16,7 +16,15 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
   - Menu mobile expansivo com animação de ícone, fechamento ao tocar fora e botão direto de WhatsApp.
   - Suporte a gestos de deslizar (*swipe* horizontal) na galeria Hero e no Lightbox em telas sensíveis ao toque.
   - Barra de filtros do portfólio com deslize horizontal fluido e prevenção de zoom automático no iOS em campos de formulário.
-- **Showcase Interativo na Hero**: Alternância automática e manual entre os projetos de destaque da arquiteta.
+- **Showcase Interativo na Hero com 7 Destaques de Alto Padrão**:
+  - Seleção das melhores obras da arquiteta com alternância automática e manual (e suporte a gestos de deslizar *swipe* no celular):
+    1. **Fachada Contemporânea de Alto Padrão**: Volumetria marcante, balanço escultural e iluminação cênica.
+    2. **Área de Lazer & Piscina**: Piscina revestida em pedra natural, deck e paisagismo integrado.
+    3. **Casa de Campo Panorâmica**: Arquitetura campestre de luxo integrada à natureza e montanhas.
+    4. **Living & Lounge Social**: Design de interiores nobre com marcenaria sob medida e forro iluminado.
+    5. **Residência Crepúsculo**: Casa contemporânea executada sob iluminação crepuscular.
+    6. **Residência Neoclássica Contemporânea**: Simetria, sofisticação e pórtico de entrada imponente.
+    7. **Espaço Gourmet & Lazer Premium**: Área gourmet ampla para convivência com acabamentos nobres.
 - **Portfólio em Carrossel Interativo com 30 Projetos Reais e Filtro Dinâmico**:
   - Carrossel horizontal responsivo (3 projetos por vista no desktop, 2 no tablet, 1 com *peek* no mobile), com botões de avanço/recuo, barra de progresso e suporte a *swipe*.
   - Categorias: *Todos (30)*, *Fachadas & Residencial*, *Design de Interiores*, *Campo & Lazer* e *Comercial & Plantas*.

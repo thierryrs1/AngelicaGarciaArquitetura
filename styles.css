@@ -581,8 +581,8 @@ textarea {
 
 .hero-thumbs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.65rem;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
   margin-top: 0.85rem;
 }
 
@@ -2151,8 +2151,24 @@ a.contact-card:hover {
   }
 
   .hero-thumbs {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     gap: 0.45rem;
     margin-top: 0.6rem;
+    padding-bottom: 4px;
+  }
+
+  .hero-thumbs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero-thumb {
+    flex: 0 0 calc(25% - 0.35rem);
+    min-width: 65px;
+    scroll-snap-align: start;
   }
 
   .hero-architect-card {
