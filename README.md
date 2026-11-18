@@ -21,6 +21,12 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
   - Carregamento prioritário (`fetchpriority="high"`) na imagem principal da Hero para otimização máxima do LCP (*Largest Contentful Paint*).
   - *Lazy loading* nativo e decodificação assíncrona (`decoding="async"`) em todas as imagens fora da primeira dobra e nas miniaturas.
   - Dimensões explícitas para prevenção de deslocamento de layout (*CLS* zero).
+- **Especialidades & Áreas de Atuação com Imagens de Alto Impacto**:
+  - Cards de serviços atualizados com projetos reais de altíssimo padrão:
+    1. **Arquitetura Residencial**: Fachada contemporânea imponente com balanço escultural e luz cênica.
+    2. **Design de Interiores**: Living nobre com forro iluminado e marcenaria sob medida.
+    3. **Arquitetura Comercial & Corporativa**: Edifício corporativo em pele de vidro e presença urbana.
+    4. **Casas de Campo, Lazer & Reformas**: Residência de campo panorâmica integrada à natureza e montanhas.
 - **Modo Apresentação em Tela Cheia (Theater Stage para Clientes & Reuniões)**:
   - Botão dedicado **"Modo Apresentação"** no portfólio (ou atalho de teclado `P`) projetado especificamente para reuniões presenciais em TV/projetor ou videoconferências.
   - Oculta distrações do site (menus, formulários, botões) e exibe as fotos em tela cheia cinematográfica sobre fundo grafite escuro com o monograma vetorial oficial da arquiteta.
