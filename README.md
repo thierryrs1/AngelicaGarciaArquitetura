@@ -25,9 +25,10 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
     5. **Residência Crepúsculo**: Casa contemporânea executada sob iluminação crepuscular.
     6. **Residência Neoclássica Contemporânea**: Simetria, sofisticação e pórtico de entrada imponente.
     7. **Espaço Gourmet & Lazer Premium**: Área gourmet ampla para convivência com acabamentos nobres.
-- **Portfólio em Carrossel Interativo com 30 Projetos Reais e Filtro Dinâmico**:
+- **Portfólio em Carrossel Interativo com 37 Projetos Reais e Filtro Dinâmico**:
   - Carrossel horizontal responsivo (3 projetos por vista no desktop, 2 no tablet, 1 com *peek* no mobile), com botões de avanço/recuo, barra de progresso e suporte a *swipe*.
-  - Categorias: *Todos (30)*, *Fachadas & Residencial*, *Design de Interiores*, *Campo & Lazer* e *Comercial & Plantas*.
+  - Categorias: *Todos (37)*, *Fachadas & Residencial*, *Design de Interiores*, *Campo & Lazer* e *Comercial & Plantas*.
+  - Títulos 100% profissionais, elegantes e conceituais (sem exposição de nomes de clientes ou dados de terceiros).
   - **Lightbox Modal**: Visualização ampliada com descrição técnica, navegação por teclado (`Esc`, `←`, `→`) e botão direto para solicitar um projeto no mesmo estilo via WhatsApp.
 - **Seção de Vídeos & Tours Virtuais 3D (`#videos`)**:
   - 7 passeios virtuais em vídeo com players nativos do YouTube embutidos diretamente nos cards e gerenciados via `CONFIG.videos` em [`app.js`](file:///c:/Users/Admin/Desktop/Clientes/AngelicaGarciaArquiteta/app.js).
