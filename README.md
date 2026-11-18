@@ -25,7 +25,7 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
   - Cards de serviços atualizados com projetos reais de altíssimo padrão:
     1. **Arquitetura Residencial**: Fachada contemporânea imponente com balanço escultural e luz cênica.
     2. **Design de Interiores**: Living nobre com forro iluminado e marcenaria sob medida.
-    3. **Arquitetura Comercial & Corporativa**: Edifício corporativo em pele de vidro e presença urbana.
+    3. **Arquitetura Comercial & Corporativa**: Projeto de reforma comercial contemporânea com fachada imponente e iluminação moderna.
     4. **Casas de Campo, Lazer & Reformas**: Residência de campo panorâmica integrada à natureza e montanhas.
 - **Modo Apresentação em Tela Cheia (Theater Stage para Clientes & Reuniões)**:
   - Botão dedicado **"Modo Apresentação"** no portfólio (ou atalho de teclado `P`) projetado especificamente para reuniões presenciais em TV/projetor ou videoconferências.
