@@ -16,6 +16,11 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
   - Menu mobile expansivo com animação de ícone, fechamento ao tocar fora e botão direto de WhatsApp.
   - Suporte a gestos de deslizar (*swipe* horizontal) na galeria Hero e no Lightbox em telas sensíveis ao toque.
   - Barra de filtros do portfólio com deslize horizontal fluido e prevenção de zoom automático no iOS em campos de formulário.
+- **Alta Performance & Carregamento Instantâneo (WebP & Core Web Vitals)**:
+  - 100% das imagens convertidas e servidas no formato de última geração **WebP**, reduzindo o peso total do site em **~40%** (de 12,55 MB para 7,56 MB) sem nenhuma perda de nitidez visual.
+  - Carregamento prioritário (`fetchpriority="high"`) na imagem principal da Hero para otimização máxima do LCP (*Largest Contentful Paint*).
+  - *Lazy loading* nativo e decodificação assíncrona (`decoding="async"`) em todas as imagens fora da primeira dobra e nas miniaturas.
+  - Dimensões explícitas para prevenção de deslocamento de layout (*CLS* zero).
 - **Showcase Interativo na Hero com 7 Destaques de Alto Padrão**:
   - Seleção das melhores obras da arquiteta com alternância automática e manual (e suporte a gestos de deslizar *swipe* no celular):
     1. **Fachada Contemporânea de Alto Padrão**: Volumetria marcante, balanço escultural e iluminação cênica.
