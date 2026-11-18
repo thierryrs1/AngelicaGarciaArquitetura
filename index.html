@@ -534,12 +534,26 @@
             </h2>
           </div>
 
-          <div class="portfolio-filters" role="tablist" aria-label="Filtrar projetos por categoria">
-            <button type="button" class="filter-btn active" data-filter="todos">Todos (37)</button>
-            <button type="button" class="filter-btn" data-filter="residencial">Fachadas &amp; Residencial</button>
-            <button type="button" class="filter-btn" data-filter="interiores">Design de Interiores</button>
-            <button type="button" class="filter-btn" data-filter="campo">Campo &amp; Lazer</button>
-            <button type="button" class="filter-btn" data-filter="comercial">Comercial &amp; Plantas</button>
+          <div class="portfolio-filters-wrap">
+            <div class="portfolio-filters" role="tablist" aria-label="Filtrar projetos por categoria">
+              <button type="button" class="filter-btn active" data-filter="todos">Todos (37)</button>
+              <button type="button" class="filter-btn" data-filter="residencial">Fachadas &amp; Residencial</button>
+              <button type="button" class="filter-btn" data-filter="interiores">Design de Interiores</button>
+              <button type="button" class="filter-btn" data-filter="campo">Campo &amp; Lazer</button>
+              <button type="button" class="filter-btn" data-filter="comercial">Comercial &amp; Plantas</button>
+            </div>
+
+            <!-- Botão Modo Apresentação -->
+            <button type="button" class="presentation-mode-btn" id="start-presentation-btn"
+              title="Iniciar apresentação em tela cheia para clientes" aria-label="Iniciar Modo Apresentação em Tela Cheia">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+                <polygon points="10 8 15 10 10 12 10 8" fill="currentColor"></polygon>
+              </svg>
+              <span>Modo Apresentação</span>
+            </button>
           </div>
         </div>
 
@@ -1600,6 +1614,74 @@
       </div>
     </div>
   </footer>
+
+  <!-- Presentation Mode Stage (Full Screen Theater Mode) -->
+  <div class="presentation-stage" id="presentation-stage" hidden role="dialog" aria-modal="true" aria-label="Apresentação de Projetos">
+    <div class="presentation-backdrop"></div>
+    <div class="presentation-container">
+      <header class="presentation-header">
+        <div class="presentation-brand">
+          <svg class="presentation-logo" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true">
+            <polygon points="50,15 15,85 85,85" fill="none" stroke="currentColor" stroke-width="4"></polygon>
+            <polygon points="50,30 28,75 72,75" fill="none" stroke="currentColor" stroke-width="3"></polygon>
+          </svg>
+          <div>
+            <span class="presentation-brand-title">Angélica Garcia</span>
+            <span class="presentation-brand-sub">Arquitetura, Interiores e Urbanismo</span>
+          </div>
+        </div>
+
+        <div class="presentation-counter-wrap">
+          <span class="presentation-slide-num" id="presentation-slide-num">01 / 37</span>
+          <span class="presentation-category-tag" id="presentation-category-tag">Fachadas &amp; Residencial</span>
+        </div>
+
+        <div class="presentation-actions">
+          <button type="button" class="presentation-btn" id="presentation-toggle-fs" title="Alternar tela cheia" aria-label="Alternar tela cheia">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+            </svg>
+          </button>
+          <button type="button" class="presentation-btn presentation-btn-close" id="presentation-close" title="Sair do modo apresentação (Esc)" aria-label="Fechar Apresentação">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span>Sair (Esc)</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="presentation-body">
+        <button type="button" class="presentation-nav presentation-prev" id="presentation-prev" aria-label="Projeto anterior (Seta Esquerda)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="presentation-media-frame">
+          <img src="" alt="" id="presentation-img" class="presentation-image" />
+        </div>
+
+        <button type="button" class="presentation-nav presentation-next" id="presentation-next" aria-label="Próximo projeto (Seta Direita)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <footer class="presentation-footer">
+        <div class="presentation-info">
+          <span class="presentation-meta" id="presentation-meta"></span>
+          <h3 class="presentation-title" id="presentation-title"></h3>
+          <p class="presentation-desc" id="presentation-desc"></p>
+        </div>
+        <div class="presentation-shortcuts-tip">
+          <span>Use as setas <strong>←</strong> e <strong>→</strong> do teclado ou <strong>Esc</strong> para sair</span>
+        </div>
+      </footer>
+    </div>
+  </div>
 
   <!-- Lightbox Modal for Portfolio -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" hidden>

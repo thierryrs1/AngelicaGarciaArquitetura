@@ -446,6 +446,26 @@ const App = (() => {
     }
 
     document.addEventListener('keydown', (event) => {
+      // Se a apresentação estiver aberta, delega para a apresentação
+      if (presentationStage && !presentationStage.hidden) {
+        if (event.key === 'Escape') {
+          closePresentation();
+        } else if (event.key === 'ArrowLeft') {
+          updatePresentationContent(currentPresentationIndex - 1);
+        } else if (event.key === 'ArrowRight' || event.key === ' ') {
+          event.preventDefault();
+          updatePresentationContent(currentPresentationIndex + 1);
+        }
+        return;
+      }
+
+      // Atalho de teclado 'P' para iniciar apresentação rápida
+      if ((event.key === 'p' || event.key === 'P') && !event.ctrlKey && !event.metaKey && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) {
+        event.preventDefault();
+        openPresentation();
+        return;
+      }
+
       if (!lightbox || lightbox.hidden) return;
       if (event.key === 'Escape') {
         closeLightbox();
@@ -455,6 +475,161 @@ const App = (() => {
         updateLightboxContent(currentLightboxIndex + 1);
       }
     });
+
+    // =========================================================================
+    // MODO APRESENTAÇÃO EM TELA CHEIA (THEATER STAGE PARA REUNIÕES COM CLIENTES)
+    // =========================================================================
+    const presentationStage = document.getElementById('presentation-stage');
+    const startPresentationBtn = document.getElementById('start-presentation-btn');
+    const presentationClose = document.getElementById('presentation-close');
+    const presentationPrev = document.getElementById('presentation-prev');
+    const presentationNext = document.getElementById('presentation-next');
+    const presentationImg = document.getElementById('presentation-img');
+    const presentationSlideNum = document.getElementById('presentation-slide-num');
+    const presentationCategoryTag = document.getElementById('presentation-category-tag');
+    const presentationMeta = document.getElementById('presentation-meta');
+    const presentationTitle = document.getElementById('presentation-title');
+    const presentationDesc = document.getElementById('presentation-desc');
+    const presentationToggleFs = document.getElementById('presentation-toggle-fs');
+
+    let currentPresentationIndex = 0;
+
+    function updatePresentationContent(index) {
+      if (visiblePortfolioItems.length === 0) return;
+      currentPresentationIndex = (index + visiblePortfolioItems.length) % visiblePortfolioItems.length;
+      const item = visiblePortfolioItems[currentPresentationIndex];
+
+      const imgSrc = item.getAttribute('data-img') || '';
+      const title = item.getAttribute('data-title') || '';
+      const subtitle = item.getAttribute('data-subtitle') || '';
+      const desc = item.getAttribute('data-desc') || '';
+      const category = item.getAttribute('data-category') || '';
+
+      const categoryLabels = {
+        todos: 'Portfólio Geral',
+        residencial: 'Fachadas & Residencial',
+        interiores: 'Design de Interiores',
+        campo: 'Campo & Lazer',
+        comercial: 'Comercial & Plantas',
+      };
+
+      if (presentationImg) {
+        presentationImg.style.opacity = '0.35';
+        setTimeout(() => {
+          presentationImg.src = imgSrc;
+          presentationImg.alt = title;
+          presentationImg.style.opacity = '1';
+        }, 120);
+      }
+
+      if (presentationSlideNum) {
+        const currentPadded = String(currentPresentationIndex + 1).padStart(2, '0');
+        const totalPadded = String(visiblePortfolioItems.length).padStart(2, '0');
+        presentationSlideNum.textContent = `${currentPadded} / ${totalPadded}`;
+      }
+
+      if (presentationCategoryTag) {
+        presentationCategoryTag.textContent = categoryLabels[category] || subtitle || 'Projeto Exclusivo';
+      }
+
+      if (presentationMeta) presentationMeta.textContent = subtitle || 'Angélica Garcia Arquitetura';
+      if (presentationTitle) presentationTitle.textContent = title;
+      if (presentationDesc) presentationDesc.textContent = desc;
+    }
+
+    function openPresentation(startIndex = 0) {
+      if (!presentationStage) return;
+      // Fecha o lightbox se estiver aberto
+      if (lightbox && !lightbox.hidden) closeLightbox();
+
+      currentPresentationIndex = startIndex;
+      updatePresentationContent(currentPresentationIndex);
+      presentationStage.hidden = false;
+      document.body.style.overflow = 'hidden';
+
+      // Tenta tela cheia nativa do navegador se suportado
+      try {
+        if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+          // Mantem opcional
+        }
+      } catch (err) {
+        // Ignora caso restrito por política de permissão
+      }
+    }
+
+    function closePresentation() {
+      if (!presentationStage) return;
+      presentationStage.hidden = true;
+      document.body.style.overflow = '';
+      if (document.fullscreenElement && document.exitFullscreen) {
+        try {
+          document.exitFullscreen();
+        } catch (err) {}
+      }
+    }
+
+    if (startPresentationBtn) {
+      startPresentationBtn.addEventListener('click', () => {
+        openPresentation(0);
+      });
+    }
+
+    if (presentationClose) {
+      presentationClose.addEventListener('click', closePresentation);
+    }
+
+    if (presentationPrev) {
+      presentationPrev.addEventListener('click', () => {
+        updatePresentationContent(currentPresentationIndex - 1);
+      });
+    }
+
+    if (presentationNext) {
+      presentationNext.addEventListener('click', () => {
+        updatePresentationContent(currentPresentationIndex + 1);
+      });
+    }
+
+    if (presentationToggleFs) {
+      presentationToggleFs.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+          if (presentationStage.requestFullscreen) {
+            presentationStage.requestFullscreen().catch(() => {});
+          }
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen().catch(() => {});
+          }
+        }
+      });
+    }
+
+    // Suporte a swipe no palco de apresentação
+    if (presentationStage) {
+      let prTouchStartX = 0;
+      presentationStage.addEventListener(
+        'touchstart',
+        (e) => {
+          if (e.touches.length > 0) prTouchStartX = e.touches[0].clientX;
+        },
+        { passive: true }
+      );
+      presentationStage.addEventListener(
+        'touchend',
+        (e) => {
+          if (presentationStage.hidden || e.changedTouches.length === 0) return;
+          const diff = e.changedTouches[0].clientX - prTouchStartX;
+          if (Math.abs(diff) > 48) {
+            if (diff < 0) {
+              updatePresentationContent(currentPresentationIndex + 1);
+            } else {
+              updatePresentationContent(currentPresentationIndex - 1);
+            }
+          }
+        },
+        { passive: true }
+      );
+    }
 
     // Suporte a swipe horizontal no Lightbox para dispositivos móveis
     if (lightbox) {

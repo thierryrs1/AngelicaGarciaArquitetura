@@ -21,6 +21,12 @@ Landing page institucional e portfólio interativo desenvolvido para a arquiteta
   - Carregamento prioritário (`fetchpriority="high"`) na imagem principal da Hero para otimização máxima do LCP (*Largest Contentful Paint*).
   - *Lazy loading* nativo e decodificação assíncrona (`decoding="async"`) em todas as imagens fora da primeira dobra e nas miniaturas.
   - Dimensões explícitas para prevenção de deslocamento de layout (*CLS* zero).
+- **Modo Apresentação em Tela Cheia (Theater Stage para Clientes & Reuniões)**:
+  - Botão dedicado **"Modo Apresentação"** no portfólio (ou atalho de teclado `P`) projetado especificamente para reuniões presenciais em TV/projetor ou videoconferências.
+  - Oculta distrações do site (menus, formulários, botões) e exibe as fotos em tela cheia cinematográfica sobre fundo grafite escuro com o monograma vetorial oficial da arquiteta.
+  - Respeita os filtros de categoria ativos (ex: se filtrar por *Campo & Lazer*, a apresentação roda apenas os projetos de campo).
+  - Contador numérico elegante (`01 / 37`), identificação da categoria, descrição editorial do projeto e navegação fluida por teclado (`←`, `→`, `Espaço`, `Esc`), botões laterais ou gestos de deslizar (*swipe* no tablet/celular).
+  - Botão de alternância para tela cheia nativa (*Fullscreen API*).
 - **Showcase Interativo na Hero com 7 Destaques de Alto Padrão**:
   - Seleção das melhores obras da arquiteta com alternância automática e manual (e suporte a gestos de deslizar *swipe* no celular):
     1. **Fachada Contemporânea de Alto Padrão**: Volumetria marcante, balanço escultural e iluminação cênica.
